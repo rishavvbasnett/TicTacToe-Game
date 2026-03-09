@@ -25,33 +25,49 @@ function playGame() {
 
         if (board1.board[0] === board1.board[1] && board1.board[1] === board1.board[2]) {
             winnerMark = board1.board[0]
+            anyWinner = true
             console.log(`This mark ${winnerMark} won!`)
         } else if (board1.board[3] === board1.board[4] && board1.board[4] === board1.board[5]) {
             winnerMark = board1.board[3]
+            anyWinner = true
             console.log(`This mark ${winnerMark} won!`)
         } else if (board1.board[6] === board1.board[7] && board1.board[7] === board1.board[8]) {
             winnerMark = board1.board[7]
+            anyWinner = true
             console.log(`This mark ${winnerMark} won!`)
         } else if (board1.board[0] === board1.board[4] && board1.board[4] === board1.board[8]) {
             winnerMark = board1.board[0]
+            anyWinner = true
             console.log(`This mark ${winnerMark} won!`)
         } else if (board1.board[6] === board1.board[4] && board1.board[4] === board1.board[2]) {
             winnerMark = board1.board[4]
+            anyWinner = true
             console.log(`This mark ${winnerMark} won!`)
         } else if (board1.board[0] === board1.board[3] && board1.board[3] === board1.board[6]) {
             winnerMark = board1.board[0]
+            anyWinner = true
             console.log(`This mark ${winnerMark} won!`)
         } else if (board1.board[1] === board1.board[4] && board1.board[4] === board1.board[7]) {
             winnerMark = board1.board[1]
+            anyWinner = true
             console.log(`This mark ${winnerMark} won!`)
         } else if (board1.board[2] === board1.board[5] && board1.board[5] === board1.board[8]) {
             winnerMark = board1.board[2]
+            anyWinner = true
             console.log(`This mark ${winnerMark} won!`)
         } else if ((totalX.length === 5 && totalO.length === 4) || (totalX.length === 4 && totalO.length === 5)) {
             console.log("DRAWWW")
         }
     }
-
 }
+
+const boxes = document.querySelectorAll(".container div")
+console.log(boxes)
+boxes.forEach(box => {
+    box.addEventListener("click", e => {
+        
+    })
+})
+
 
 playGame()

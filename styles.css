@@ -1,9 +1,9 @@
 body {
-    height: 100vh;
+    height: 92vh;
     min-height: fit-content;
-    width: 100vw;
+    min-width: fit-content;
     display: flex;
-    gap: clamp(2rem, 10%, 6rem);
+    gap: clamp(1.2rem, 10%, 6rem);
     padding: clamp(1.2rem, 5%, 5rem);
     flex-direction: column;
     align-items: center;
@@ -19,19 +19,76 @@ body {
     font-size: clamp(1.5rem, 2.5rem, 2.5rem)
 }
 
+.outerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: first baseline;
+    gap: clamp(0.4rem, 7vw, 8rem)
+}
+
 .container {
     border: 1px solid black;
     min-height: fit-content;
     min-width: fit-content;
-    height: 50vw;
-    width: 70vw;
-
+    border-radius: 8px;
     display: grid;
-    grid-template-columns: repeat(3, minmax(80px, 1fr));
-    grid-template-rows: repeat(3, minmax(80px, 1fr));
+    grid-template-columns: repeat(3, minmax(80px, 120px));
+    grid-template-rows: repeat(3, minmax(80px, 120px));
 }
 
 .container> div {
     border: 1px solid black;
+    
 }
 
+.container div:hover{
+    border: 1px solid black;
+    box-shadow: 2px 2px 8px rgb(156, 101, 101)
+}
+
+.playerBox {
+    padding: 0 0.2rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.playerBox>div {
+    display: flex;
+    justify-content: center;
+}
+
+.display {
+    height: 100px;
+    width: 360px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    font-size: 1.3rem;
+}
+
+.player1, .player2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid black;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.markPlayer1, .markPlayer2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.player1, .markPlayer1 {
+    border-right: 1px solid black;
+}
