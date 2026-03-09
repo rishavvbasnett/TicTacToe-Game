@@ -50,7 +50,6 @@ function playGame() {
         } else if ((totalX.length === 5 && totalO.length === 4) || (totalX.length === 4 && totalO.length === 5)) {
             console.log("DRAWWW")
         }
-
     }
 
 }

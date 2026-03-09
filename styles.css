@@ -1,0 +1,37 @@
+body {
+    height: 100vh;
+    min-height: fit-content;
+    width: 100vw;
+    display: flex;
+    gap: clamp(2rem, 10%, 6rem);
+    padding: clamp(1.2rem, 5%, 5rem);
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: black;
+    font-weight: bold;
+    font-size: clamp(1.5rem, 2.5rem, 2.5rem)
+}
+
+.container {
+    border: 1px solid black;
+    min-height: fit-content;
+    min-width: fit-content;
+    height: 50vw;
+    width: 70vw;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(80px, 1fr));
+    grid-template-rows: repeat(3, minmax(80px, 1fr));
+}
+
+.container> div {
+    border: 1px solid black;
+}
+
