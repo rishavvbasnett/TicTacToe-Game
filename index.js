@@ -5,6 +5,9 @@ const dialog = document.querySelector("dialog")
 const dialogMsg = document.querySelector("dialog>div")
 const playAgainBtn = document.querySelector("dialog>button")
 
+const takenSpots = []   /* keep track of boxes that are occupied */
+
+
 function gameBoard() {
     const board = [1, 1, 2,
                    3, 4, 5,
@@ -14,7 +17,8 @@ function gameBoard() {
 
 function Player(mark) {
     const putMark = (gameboard, position) => {
-        gameboard.board[position] = mark;
+        gameboard.board[position] = mark
+        takenSpots.push(position)
     }
     return { mark, putMark }
 }
@@ -29,11 +33,9 @@ function playGame() {
     /* Check if there is any winner */
     function winGame(winnerMark) {
         if (winnerMark === player1.mark) {
-            console.log("Player 1 wins the game!")
             dialogMsg.textContent = "Player 1 wins the game!"
         } else if (winnerMark === player2.mark) {
             dialogMsg.textContent = "Player 2 wins the game!"
-            console.log("Player 2 wins the game!")
         } else {
             dialogMsg.textContent = "It's a Tie!"
         }
@@ -41,6 +43,7 @@ function playGame() {
             window.location.href = "./index.html"
             dialog.close()
         })
+        
         dialog.showModal()
     }
 
@@ -65,53 +68,55 @@ function playGame() {
 
         if (board1.board[0] === board1.board[1] && board1.board[1] === board1.board[2]) {
             winnerMark = board1.board[0]
-            winGame(winnerMark)
+            setTimeout(()=>winGame(winnerMark), 300)
  
         } else if (board1.board[3] === board1.board[4] && board1.board[4] === board1.board[5]) {
             winnerMark = board1.board[3]
-            winGame(winnerMark)
+            setTimeout(()=>winGame(winnerMark), 300)
 
         } else if (board1.board[6] === board1.board[7] && board1.board[7] === board1.board[8]) {
             winnerMark = board1.board[7]
-            winGame(winnerMark)
+            setTimeout(()=>winGame(winnerMark), 300)
 
         } else if (board1.board[0] === board1.board[4] && board1.board[4] === board1.board[8]) {
             winnerMark = board1.board[0]
-            winGame(winnerMark)
+            setTimeout(()=>winGame(winnerMark), 300)
 
         } else if (board1.board[6] === board1.board[4] && board1.board[4] === board1.board[2]) {
             winnerMark = board1.board[4]
-            winGame(winnerMark)
+            setTimeout(()=>winGame(winnerMark), 300)
 
         } else if (board1.board[0] === board1.board[3] && board1.board[3] === board1.board[6]) {
             winnerMark = board1.board[0]
-            winGame(winnerMark)
+            setTimeout(()=>winGame(winnerMark), 300)
 
         } else if (board1.board[1] === board1.board[4] && board1.board[4] === board1.board[7]) {
             winnerMark = board1.board[1]
-            winGame(winnerMark)
+            setTimeout(()=>winGame(winnerMark), 300)
 
         } else if (board1.board[2] === board1.board[5] && board1.board[5] === board1.board[8]) {
             winnerMark = board1.board[2]
-            winGame(winnerMark)
+            setTimeout(()=>winGame(winnerMark), 300)
 
         } else if ((totalX.length === 5 && totalO.length === 4) || (totalX.length === 4 && totalO.length === 5)) {
-            winGame(winnerMark)
+            setTimeout(()=>winGame(winnerMark), 300)
         }
     }
 
     displayTurn()
 
+    /* Acutal process of marking "Os and Xs" in the boxes */
     boxes.forEach(box => {
         box.addEventListener("click", e => {
             /* with each click in a box, get the dataset, which is the index
                for the board array in the gameboard object */
-
             const boxIndex = e.target.dataset.index
 
+            if (takenSpots.includes(boxIndex)) {    
+
+            } else {
             /* check if its player1s turn or player2s turn */
             if (player1Turn === true) {
-
                 /* use the putMark method, to inject a mark 
                 on the index the clicked box */ 
                 player1.putMark(board1, boxIndex)
@@ -133,7 +138,7 @@ function playGame() {
                 player1Turn = !player1Turn
                 displayTurn()
             }
-        })
+        }})
     })
 }
 
