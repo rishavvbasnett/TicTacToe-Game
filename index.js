@@ -41,8 +41,6 @@ function startPage() {
 
 }
 
-const takenSpots = []   /* keep track of boxes that are occupied */
-
 function gameBoard() {
     const board = [1, 1, 2,
         3, 4, 5,
@@ -59,6 +57,8 @@ function Player(mark, name) {
 }
 
 function playGame() {
+    const takenSpots = []   /* keep track of boxes that are occupied */
+    
     const board1 = gameBoard()
     const player1 = Player("X", p1Name)
     const player2 = Player("O", p2Name)
