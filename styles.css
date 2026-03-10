@@ -51,7 +51,7 @@ body {
     box-shadow: 2px 2px 8px rgb(155, 16, 16)
 }
 
-.playerBox {
+.player1Info, .player2Info {
     text-shadow: 0.3px 0.3px 1.5px rgb(25, 76, 230);
     color: rgb(4, 0, 0);
     padding: 0 0.2rem;
@@ -68,16 +68,21 @@ body {
     font-size: 3rem;
 }
 
-.playerBox.p1>div {
+.player1Info>.p1Sign {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
     color: green;
     text-shadow: 0.2px 0.2px 1.2px rgba(110, 3, 3, 0.6);
 }
 
-.playerBox.p2>div {
+.player2Info>.p2Sign {
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
     color: red;
     text-shadow: 0.3px 0.3px 5px rgba(6, 100, 38, 0.8);
 }
-
 
 .display {
     height: 100px;
@@ -121,7 +126,7 @@ body {
     font-weight: bold;
 }
 
-dialog:open {
+.endGameDialog:open {
     height: 55vh;
     text-shadow: 0.3px 0.3px 1.5px rgb(34, 241, 23);
     color: rgb(4, 0, 0);
@@ -136,7 +141,7 @@ dialog:open {
     border-radius: 6px;
 }
 
-dialog:open div {
+.endGameDialog:open div {
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
@@ -145,7 +150,7 @@ dialog:open div {
     align-items: center;
 }
 
-dialog:open button {
+.endGameDialog:open button {
     font-size: 1.2rem;
     font-weight: 600;
     text-shadow: 0.1px 0.1px 1.5px rgba(10, 94, 211, 0.5);
@@ -153,4 +158,63 @@ dialog:open button {
     border: 1.5px solid rgb(4, 0, 0);
     box-shadow: 0.5px 0.5px 1.5px rgb(17, 104, 204) ;
     border-radius: 5px;
+}
+
+.startGameDialog:open {
+    height: 70vh;
+    width: 60vh;
+    max-width: 450px;
+    color: rgb(4, 0, 0);
+    box-shadow: 3px 3px 8px rgb(7, 201, 59);
+    border-radius: 7px;
+    border: 2px solid rgb(4, 0, 0) ;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+}
+
+.startGameDialog::backdrop {
+    background-color: rgba(237, 236, 236, 0.9);
+}
+
+.startGameDialog:open h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 2.7rem;
+}
+
+.startGameDialog:open div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:1rem;
+}
+
+.startGameDialog:open label, .startGameDialog:open input {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-shadow: 0.1px 0.1px 1.5px rgba(10, 94, 211, 0.5);
+    color: rgb(4, 0, 0);
+}
+
+.startGameDialog:open button {
+    padding: 0.2rem 0.7rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-shadow: 0.1px 0.1px 1.5px rgba(10, 94, 211, 0.5);
+    color: rgb(4, 0, 0);
+    border: 1.5px solid rgb(4, 0, 0);
+    box-shadow: 0.8px 0.8px 4px rgb(17, 104, 204) ;
+    border-radius: 5px;
+}
+
+dialog:open button:hover, dialog:open input:hover {
+    box-shadow: 1px 1px 4px rgba(33, 193, 78)
+}
+dialog:open .play{
+    padding: 0.8rem 1.3rem;
+    box-shadow: 1px 1px 5px 0.8px rgb(237, 6, 33, 0.8) ;
 }

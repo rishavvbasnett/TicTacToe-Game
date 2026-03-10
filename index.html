@@ -11,8 +11,9 @@
 <body>
     <div class="header">Tic Tac Toe</div>
     <div class="outerContainer">
-        <div class="playerBox p1">Player 1
-            <div>X</div>
+        <div class="player1Info">
+            <div class="playerBox p1">Player 1</div>
+            <div class="p1Sign">X</div>
         </div>
         <div class="container">
             <div class="box0" data-index="0"></div>
@@ -25,17 +26,33 @@
             <div class="box7" data-index="7"></div>
             <div class="box8>" data-index="8"></div>
         </div>
-        <div class="playerBox p2">Player 2
-        <div>O</div>
+        <div class="player2Info">
+            <div class="playerBox p2">Player 2</div>
+            <div class="p2Sign">O</div>
         </div>
-       </div>
 
     </div>
     <div class="display">
     </div>
 
-    <!--The dialog modal box that opens after a game is won-->
-    <dialog>
+    <!--Starting dialog box-->
+    <dialog class="startGameDialog">
+        <h1>Tic Tac Toe</h1>
+        <div class="player1Name">
+            <label for="player1">Player 1 Name:</label>
+            <input type="text" id="player1">
+            <button class="enter">Enter</button>
+        </div>
+        <div class="player2Name">
+            <label for="player2">Player 2 Name:</label>
+            <input type="text" id="player2">
+            <button class="enter">Enter</button>
+        </div>
+        <button class="play">Play</button>
+    </dialog>
+
+    <!--The dialog modal box that opens after a game is won -->
+    <dialog class="endGameDialog">
         <div></div>
         <button>Play Again</button>
     </dialog>
